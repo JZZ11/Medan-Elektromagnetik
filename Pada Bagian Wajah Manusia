@@ -1,0 +1,35 @@
+% Komponen medan listrik awal
+E0 = [2, 3, 4];
+
+% Konstanta dielektrik tiap bagian
+epsilon_mata = 55.0;
+epsilon_hidung = 57.0;
+epsilon mulut = 5.3;
+
+% Norma dari medan listrik awal
+norm_E0 = norm(E0);
+
+% Medan listrik yang be pada tiap bagian
+E_mata = norm_E0 / epsilon_mata;
+E_hidung = norm_E0 / epsilon_hidung;
+E_mulut = norm_E0 / epsilon_mulut;
+
+% Vektor posisi untuk tiap bagian
+pos_mata = [1, 0, 0];
+pos_hidung = [2, 0, 0];
+pos_mulut = [3, 0, 0];
+
+% Plot medan listrik dengan quiver plot
+quiver3(0, 0, 0, E_mata*pos_mata(1), E_mata*pos_mata(2), E_mata*pos_mata(3), 'r', 'LineWidth', 2);
+quiver3(0, 0, 0, E_hidung*pos_hidung(1), E_hidung*pos_hidung(2), E_hidung*pos_hidung(3), 'g', 'LineWidth', 2);
+quiver3(0, 0, 0, E_mulut*pos_mulut(1), E_mulut*pos_mulut(2), E_mulut*pos_mulut(3), 'b', 'LineWidth', 2);
+
+% Tambahkan label
+xlabel('X-axis');
+ylabel('Y-axis');
+zlebel('Z-axis');
+legend({'Mata Manusia', 'Hidung Manusia', 'Mulut Manusia'});
+title('Distribusi Medan Listrik pada Wajah Manusia');
+grid on;
+axis equal;
+hold off;
